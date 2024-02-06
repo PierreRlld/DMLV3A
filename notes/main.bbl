@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+
+\bibitem{Sims}
+Cristopher~A. Sims.
+\newblock Macroeconomics and reality.
+\newblock {\em Econometrica}, 48(1):1--48, 1980.
+
+\bibitem{LANNE}
+Markku Lanne, Helmut Lütkepohl, and Katarzyna Maciejowska.
+\newblock Structural vector autoregressions with markov switching.
+\newblock {\em Journal of Economic Dynamics and Control}, 34(2):121--131, 2010.
+
+\bibitem{HL}
+Helmut Herwartz and Helmut Lütkepohl.
+\newblock Structural vector autoregressions with markov switching: Combining conventional with statistical identification of shocks.
+\newblock {\em Journal of Econometrics}, 183(1):104--116, 2014.
+
+\bibitem{Ehrmann}
+Natacha~Valla Michael~Ehrmann, Martin~Ellison.
+\newblock Regime-dependent impulse response functions in a markov-switching vector autoregressive model.
+\newblock {\em Economics Letters}, 78:295--299, 2003.
+
+\bibitem{Krame}
+Frederic Karamé.
+\newblock Impulse-response functions in markov-switching structural vector autoregressions: A step further.
+\newblock {\em Economics Letters}, 106(3):162--165, 2010.
+
+\bibitem{Maddalena}
+Maddalena Cavicchioli.
+\newblock Impulse response function analysis for markov switching var models.
+\newblock {\em Economics Letters}, 232:111357, 2023.
+
+\bibitem{Iran}
+Parnia Shahrestani and Meysam Rafei.
+\newblock The impact of oil price shocks on tehran stock exchange returns: Application of the markov switching vector autoregressive models.
+\newblock {\em Resources Policy}, 65:101579, 2020.
+
+\bibitem{Hou}
+Bao H.~Nguyen Chenghan~Hou.
+\newblock Understanding the us natural gas market : A markov switching var approach.
+\newblock {\em Energy Economics}, 75:42--53, 2018.
+
+\bibitem{MM}
+Yasutomo~Murasawa Roberto S.~Mariano.
+\newblock A coincident index, common factors, and monthly real gdp.
+\newblock {\em Oxford Bulletin of Economics and Statistics}, 72(1):27--46, 2010.
+
+\bibitem{Camacho}
+Maximo Camacho.
+\newblock Mixed-frequency var models with markov-switching dynamics.
+\newblock {\em Economics Letters}, 121(3):369--373, 2013.
+
+\bibitem{Foroni}
+Claudia Foroni, Pierre Guérin, and Massimiliano Marcellino.
+\newblock Markov-switching mixed-frequency var models.
+\newblock {\em International Journal of Forecasting}, 31(3):692--711, 2015.
+
+\bibitem{Ghysels}
+Eric Ghysels.
+\newblock Mixed frequency vector autoregressive models.
+\newblock {\em University of North Carolina}, 2012.
+
+\end{thebibliography}

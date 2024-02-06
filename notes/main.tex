@@ -1,0 +1,41 @@
+% == CREDIT TO Pascal Michaillat ===
+\documentclass[letterpaper,12pt,leqno]{article}
+\usepackage{paper,math,notes}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{relsize}
+
+\pgfplotsset{compat = newest}
+\usetikzlibrary{positioning, arrows.meta}
+%\available{https://github.com/PierreRlld/SVAR3A}
+\hypersetup{pdfauthor = {Pierre Rouillard}, pdftitle = {dmlv3a-prouillard}, pdfstartview={FitH}}
+
+\begin{document}
+
+\title{\textit{'Structural vector autoregressions with Markov switching' M.Lanne, H.Lütkepohl \& K.Maciejowska (2010)}}
+\author{Pierre Rouillard}
+\date{}
+
+\begin{titlepage}
+\maketitle
+\tableofcontents
+\end{titlepage}
+
+\section{Summary of the paper}\label{sec:sec1}
+\input{core/1. Summary.tex}
+
+\section{Literature review}\label{sec:sec2}
+\input{core/2. Litreview.tex}
+
+\section{Other comments}\label{sec:sec3}
+\input{core/3. Analysis.tex}
+
+\newpage
+\section{Notes}\label{sec:appendix}
+\input{core/Annex.tex}
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{biblio}
+
+\end{document}

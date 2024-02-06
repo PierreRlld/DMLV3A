@@ -1,0 +1,67 @@
+% ============================================
+\quad A large part of the Structural VAR framework analysis has to do with (orthogonal) structural shocks identification. 
+Several approachs have been developed and discussed throughout the years, such as recursive identification (Sims (1980) \cite{Sims} i.e imposing zero restrictions so that variables do not depend contemporaneously on the shocks ordered after), short and long-run restrictions (respectively zero restrictions: on a subset of shocks for specific variable(s) and on some coefficients of the long-run matrix).
+These identification schemes yield \textit{exact} identification in the sense that a shock is uniquely identified through precise estimation of the matrix $B_0$ (see \ref{res_B}). 
+However sign restrictions have also been discussed and in this case, we have a pool of plausible models and thus only \textit{partial} identification. 
+All these identification procedures usually rely on economic theory to justify restriction choices.
+
+\bigbreak
+
+The framework that Lanne et al. \cite{LANNE} leverages, known as identification via heteroskedasticity, makes use of regimes with solely different variances for the structural shocks, which increases the number of estimated moments and is able to yield exact identification for $B_0$.
+Thus, changes in the volatility of the VAR errors (and hence the observed variables) can be used to assist in the precise identification of structural shocks. 
+In other words, it extracts further information from the data to provide additional conditions needed for identification.
+Still, this result relies on the assumption that between regimes it is solely the variance of estimated residuals that changes so that the coefficient matrices are not time/regime dependent (in particular impulse response functions do not depend on the state, see \ref{res_irf}). 
+Thus comes the most important feature of this framework: any additional restriction on $B_0$ only over-identifies the model and can then be tested using standard tools\footnotemark. \footnotetext{Wald test for equality, likelihood ratio '\textit{LR}' test \dots} 
+The framework also allows for a comparion between \textit{unrestricted} (Markov-switching based) and \textit{restricted} (standard SVAR with restrictions) impulse response functions '\textit{IRFs}' results.
+This makes for a strong contender to compare work already done in the litterature, especially papers that use recusrive identification assumptions in standard SVAR, as long as changes in volatility can be argued for.
+
+\bigbreak
+
+In detail, an homogenous Markov structure is assumed on the residuals such that we have, in general, $\textrm{Var}(u_t \vert s_t) = \Sigma_{s_t}$ with $s_t \in \{1,\dots,M \}$ ($M$ regimes) and transition matrix $P$. 
+The authors further argue that the normality assumption $u_t \vert s_t \thicksim \mathcal{N}(0,\Sigma_{s_t})$ is, in theory, not mandatory but comes in very handy to define the likelihood used in the estimation procedure. 
+Moreover, they tackle the restrictiveness issue of such (conditional) normality hypothesis by illustrating that with constant rows for the transition matrix\footnotemark \, $P$ the model reduces to a system of usual SVAR with mixed normal errors and the probabilities that $u_t$ follows each law are given by the first column of $P$.
+They argue such class of distributions is already much more diverse, complete and can accomodate more situations compared to the standard simple normality assumption. 
+\footnotetext{Constant rows for the transition matrix = same probability to switch between all states and yields independancy of current state relative to previous date state}
+
+\bigbreak
+
+Using the \textit{simultaneous diagolanization of a positive semi definite matrix and symmetric matrices} from Lütkepohl\footnotemark (1996) we get that for a 2-regime system, the estimated variance matrices can be such that : $\Sigma_1 = B.B^T$ and $\Sigma_2 = B.\Gamma_2.B^T$ with $B$ positive definite and $\Gamma_2$ a real diagonal matrix with nonnegative diagonal coefficients.
+Conditional on all coefficients of $\Gamma_2$ being distinct (which can be tested via usual Wald test), estimates of $\Sigma_1, \Sigma_2$ effectively yield $2.\frac{n(n+1)}{2}=n(n+1)$ moments which uniquely identifies the $n^2$ coefficients of $B$ and the $n$ diagonal coefficients of $\Gamma_2$.
+Otherwise if $\Sigma_1 \neq \Sigma_2$, but some coefficients are equal, we still identify $\Gamma_2$ but $B$ is no longer unique!
+A similar decomposition for $M>2$ regimes (see [\ref{simult_M}]) does not necessarily exist: it potentially needs to be assumed and tested via LR-test. 
+Such test will then assess to what extent a constant matrix $B$ can be used to diagonalize covariance matrices associated with all states.
+Still, the authors provide a result that ensures the uniqueness of $B$ (up-to-sign): for any pair of diagonal coefficients, at least one of the matrices of $\{\Gamma_i\}$ is such that these coefficients are distinct.
+Regardless of the number of regimes, the resulting shocks $u_t = B.e_t$ are orthogonal in all states.
+In this framework the Markov process only affects the covariance matrix, and it is precisely these differences in error covariance matrices that provide sufficient conditions (from the data alone) to uniquely identify shocks without diverging much from the standard SVAR framework.
+\footnotetext{\textit{Handbook of Matrices} H. Lütkepohl (page 86) - Humboldt-Universität zu Berlin Germany}
+
+\bigbreak
+
+The estimation procedure consists of computing the maximum or pseudo-maximum likelihood estimators for the parameters (depending on assuming conditional normality or not). 
+Regarding the optimization solution in itself  of such likelihood, they simply mention using an extension of the EM algorithm of Dempster, Laird and Rubin (1977) for the specific case of hidden-Markov chain parametrized covariance matrices but do not provide much detail. %proposed by Hamilton (1994) and Krolzig (1997)
+In addition, the usual hypothesis underlying the SVAR framework relies on stationarity of the processes but in case some variables are only cointegrated, and especially if the cointegration relationship is unknown, the authors provide a sketch of the stance to adopt. 
+Still they mention such problems remain to be tackled and demonstrated by further research.
+
+\bigbreak
+
+Finally, they make use of the strong over-identification test feature of the MS-SVAR framework to assess the identification restrictions used in two papers on monetary policy analysis. 
+They also compare their unrestricted IRFs to the articles' results. 
+Primiceri (2005) introduces a three-variable model (inflation rate, unemployment rate and three-month treasuries yield) for the US and procedes to identify shocks via standard recursive identification. 
+The justification of such identification scheme hinges on the assumption that monetary policy shocks do not contemporaneously affect economic variables: the effect is at least one-period delayed.
+Using a 2-regime MS-VAR model, Lanne et al. show that structural shocks can be fully identified as diagonal coefficients of the estimated $\Gamma_2$ matrix are sufficiently distinct (assessment via Wald test). 
+The recursive identification -now an over-indentifying assumption- with underlying hypothesis that $B_0$ is a lower triangular matrix can then be tested via LR test and it appears this null hypothesis is rejected. 
+Precisely, after identifying the monetary shock amidst the three estimated shocks, it appears $B_0$ has a negative and significant coefficient on the contemporaneous reaction of the unemployment rate to a monetary policy shock, contrary to the inital assumption made by Primiceri.
+However, rejecting the lower-triangularity assumption in itself is not a necessary result that invalidates Primiceri's conclusions on the variables reactions to shocks. 
+This is rather assessed by comparing the restricted and unrestricted IRFs, and it appears responses to a monetary policy shock derived from the unrestricted MS-VAR model are stronger (in absolute value) in the short-run. Robustness checks were performed and do not change this result.
+\bigbreak
+The Sims et al. (2008) three-variable (log GDP, inflation and short-term rate) model is also assessed. 
+Despite initial estimation done via MS-VAR, shocks are not identified via heteroskedasticity changes but rather via again recursive identification.
+Following similar assessment to Primiceri's paper Lanne et al. show strong evidence for a uniquely identified matrix $B_0$. 
+As the model is this time composed of three regimes, the uniqueness result is derived from the extended result [\ref{simult_M}].
+A likelihood ratio test on the lower-triangularity hypothesis can then be ran on the estimated $B_0$ and it is rejected at 10\% significance level but not at 5\%.
+The \textit{simultaneous diagolanization} decomposition, which does not necessarily exist for three or more regimes, is also accounted for and tested via LR test.
+The test amounts to checking that all matrices $B_0^{-1}.\Sigma_i.B^T$ are diagonal\footnotemark.
+The null hypothesis is not rejected and combined with little evidence to reject the lower-triangularity hypothesis, Lanne et al. results from the MS-SVAR framework, in this case, strengthens the confidence in the recursive identification scheme.
+Overall the MS-VAR framework appears to be the perfect fit to test restrictions which are used as \textit{'necessary-identification-conditions'} in standard SVAR.
+\footnotetext{The alternative hypothesis is then: at least one is not diagonal, and in this case the \textit{simultaneous diagolanization} decomposition hypothesis is rejected.}
+

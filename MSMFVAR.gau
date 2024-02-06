@@ -1,0 +1,361 @@
+@ Maximo Camacho
+  (February, 27th 2013)
+  www.um.es/econometria/Maximo @ 
+
+new;
+format/rd 1,4;
+library optmum,pgraph;
+graphset;optset;
+#include optmum.ext;
+_opalgr=2;_opmiter=300;__output=2;_oprteps=0;
+_pcolor=4|3;_pltype=6;_opgtol=1e+5;
+_pmcolor=0|0|1|1|1|0|0|0|15;
+pqgwin many; 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   Adjust any of the following to control specification desired
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+va=1;    @ va is the var of rnd number to fill unobseved data @
+nm=4;    @ number of montly indicators @
+n=1+nm;
+p=5;
+q1=1;    @ lag length of all idios. of monthly indicators @
+pphi=maxc(p|q1); @ pphi is the max lag length @
+nk=pphi+1; @ nk is the first observation for which the likelihood will be evaluated @
+pnk=p+q1*nm;@ pnk is the dimension of the state space (B) @                             
+outp=1;    @ outp=0 to skip outputs @
+graphs=1;  @ graphs=0 to skip graphs @
+je=0;      @ je=0 to skip hessian calculations @
+Ktr=1;
+ks=0;
+Hs=0;
+vector=(1/3)|(2/3)|1|(2/3)|(1/3);
+smooth=1;      @ smooth=1 to calculate smoothed probs @
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+               load variables in cols
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+indica0=xlsreadm("data_18_07_2013.xls","a2",1,"");   @ data GDP IPI Employment Income Sales @
+ini=200;
+itera=1;
+fecha=indica0[ini:rows(indica0),1];
+nber=indica0[ini:rows(indica0),7];
+Prec=zeros(rows(indica0)-ini+1,1);      @ Recession probabilities @
+do while ini<=rows(indica0);
+indica=indica0[1:ini,2:6];
+y=relleno(indica,va);
+capt=rows(y);
+captst=capt-pphi;            @ captst is the effective sample size @
+yv=y[nk:capt,.];
+index=(indica[nk:capt,1:cols(indica)].ne99999);
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                Initial parameters' values
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+let startval=
+0.1803819665 
+0.2607616284 
+0.0792041035 
+0.1918344416 
+0.4504420622 
+0.0617042642 
+-0.1586898133 
+-0.0518275840 
+0.0456205083 
+0.2360089854 
+-0.4893780185 
+0.2829865654 
+0.1827332836 
+0.0234176312 
+-0.0089140286 
+-0.0674787822 
+0.1455904448 
+0.1227709911 
+0.0788690609 
+0.1455850194 
+0.3376463014 
+0.0375195216 
+0.0521337896 
+-0.0507673629 
+0.5684693008 
+0.0067967189 
+-0.0062979637 
+0.0414712445 
+0.7496803695 
+-0.1427169953 
+-0.0272515108 
+0.1245827788 
+0.6666560449 
+0.0855707398 
+-0.0257352265 
+0.1563490124 
+-0.0094787656 
+0.0248663947 
+0.1673056867 
+0.0579605905 
+0.1057060141 
+0.3411095090 
+0.0161415265 
+0.0672332331 
+0.0414243301 
+0.6387050588 
+0.6938875778 
+0.1330747323 
+0.5166168197 
+1.0996847698 
+8.6148286663 
+2.3169068427  ;
+
+nth=rows(startval);  @ nth is number of parameters to be estimated @
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+         I will need the following matrices
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+Filter=zeros(captst,pnk);  @ Filtered inferences @
+ye=zeros(captst,n);        @ in-sample estimates @
+pq=5;
+pnk2=(pq^2+pq)/2;
+skis=zeros(captst,2);
+skif=zeros(captst,2);
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          Use Gauss numerical optimizer
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+{x,ff,gg,pana}=optprt(optmum(&ofn,startval));
+thn=trans(x);
+Prec[itera]=skif[captst,2];
+itera=itera+1;
+ini=ini+1;
+endo;
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Standard deviations
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+if je ne 0;
+cls;"Computing hessian...";
+ks=1;
+  he=gradfd(&ofn,x)'gradfd(&ofn,x);
+ks=0;
+hi=invpd(he);
+stdor=diag(hi)^.5;
+gr=gradfd(&trans,x);
+Hfin=gr*hi*gr';
+std=diag(Hfin)^.5;
+endif;
+if je==0;std=zeros(nth,1);endif;
+
+ /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             OUTPUTS and GRAPHS
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+if graphs ne 0;
+   title("Forecasted probabilities of state 2");
+   xy(seqa(1,1,rows(prec)),prec~nber);
+endif;
+
+if outp ne 0;
+    declare string vname2=date prec nber;
+    neces=fecha~prec~nber;
+    ret=xlswritesa(vname2',"results_MS_MF_VAR4_1_out","a1",1,"");
+    ret=xlswritem(neces,"results_MS_MF_VAR4_1_out","a2",1,"");
+endif;
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      SOME PROCEDURES HERE
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*-----------------------------------------------------------------
+          Procedure to fill in the missing values
+-----------------------------------------------------------------*/
+proc relleno(data,va);
+   local rd,data2,j,i,cd;
+   rd=rows(data);
+   cd=cols(data);
+   data2=va*rndn(rd,cd);
+   j=1;
+   do while j<=cd;
+      i=1;
+      do while i<=rd;
+         if data[i,j] ne 99999;
+            data2[i,j]=data[i,j];
+         endif;
+         i=i+1;
+      endo;   
+      j=j+1;
+   endo;
+   retp(data2);
+endp;
+
+/*-----------------------------------------------------------------
+          Procedure to compute likelihood function
+-----------------------------------------------------------------*/
+proc ofn(th);   
+   local like,beta00,beta00E,P00,it,beta10R,beta10E,beta10ER,beta10EE,
+         beta11E,beta11R,beta11EE,ProbE,ProbR,muE,muR,
+         n10R,n10E,n10RE,n10EE,dRR,dRE,dR,dE,plT,beta11,F10ER,F10RE,
+         ProbRR,ProbER,ProbRE,ProbEE,plRR,plER,plRE,plEE,p1T,muee,muer,mure,murr,
+         fun,Hit,mit,Rit,P10,P10E,P10ER,P10RE,KR,KE,KER,KRE,P11R,P11E,
+         R,Q,H,F,K,P11,F10,W,ps,qls,P00E,P11RR,P11EE,P11ER,P11RE,aa,sara,phife,pm;
+   th=trans(th);
+   {R,Q,H,F}=matrices(th);
+   beta00=zeros(pnk,1);
+   P00=eye(pnk);
+   ps=th[nth-1];qls=th[nth];
+   ProbE=(1-qls)/(2-ps-qls);
+   ProbR=1-probE;
+   mue=th[1]|zeros(4,1)|th[2:n];
+   mur=th[n+1]|zeros(4,1)|th[n+2:2*n];
+
+   like=zeros(captst,1);
+   it=1;                          @ kalman filter iterations @
+   do while it<=captst;      
+
+      Hit=index[it,.]'.*H;
+      Rit=diagrv(zeros(n,n),(1-index[it,.])'.*R);
+
+      beta10e=mue+F*beta00;         @ Prediction equations @
+      beta10r=mur+F*beta00;            
+                        
+      n10e=Yv[it,.]'-(Hit*beta10e); @ forecast error @
+      n10r=Yv[it,.]'-(Hit*beta10r); 
+
+      P10=F*P00*F'+Q;
+      F10=Hit*P10*Hit'+Rit;            
+      sara=det(F10);
+      if minc(sara)<=0;
+         fun=1000000;
+         goto labb;
+      endif;  
+      dE=-ln(sqrt(2*pi*det(F10)))-0.5*n10E'inv(F10)*n10E;  
+      dR=-ln(sqrt(2*pi*det(F10)))-0.5*n10R'inv(F10)*n10R;      
+      
+      K=P10*Hit'inv(F10);    
+      beta11E=beta10E+K*n10E; 
+      beta11R=beta10R+K*n10R; 
+      
+      P11=(EYE(pnk)-(P10*Hit'*INV(F10))*Hit)*P10;
+      plRR=exp(dr)*qls*probR;
+      pler=exp(de)*(1-qls)*probR;
+      plre=exp(dr)*(1-ps)*probE;
+      plEE=exp(de)*ps*probE;
+      plT=plRR+plRE+plER+plEE;
+      like[it]=ln(plT);
+
+      ProbRR=plRR/plT;
+      ProbRE=plRE/plT;
+      ProbER=plER/plT;
+      ProbEE=plEE/plT;
+
+      ProbR=ProbRR+Probre;
+      ProbE=Prober+ProbEE;
+      
+      skif[it,.]=ProbE~ProbR;
+     
+      filter[it,.]=probR*beta11r'+probE*beta11E';          
+ 
+      beta00=probR*beta11r+probE*beta11E;          
+      P00=(probR*(P11+(Beta11R-Beta00)*(Beta11R-beta00)')+
+                 PRObe*(P11+(Beta11e-Beta00)*(Beta11e-beta00)'));
+
+      it=it+1;
+   endo;
+   
+   if ks==1;
+      fun=like;
+   else; 
+     fun=-sumc(like[1:rows(like)]);
+   endif;
+   if smooth ne 0;  @ Smmothed probabilities if desired @
+      pm=(th[nth-1]~(1-th[nth]))|((1-th[nth-1])~th[nth]);
+      skis=fsmooth(skif,pm);
+   endif;
+   labb:
+   retp(fun);
+endp;
+
+
+/*-----------------------------------------------------------------
+          Procedure to transform std into variances
+-------------------------------------------------------------------*/
+proc trans(vari2);
+  local partrans,rv,cy2,j,ncont,zp,zq;    
+  rv=rows(vari2);
+  ncont=2*n+n^2+(n^2-n)/2;
+  zp=vari2[rv-1];zp=zp^2/(1+zp^2);
+  zq=vari2[rv];zq=zq^2/(1+zq^2);
+  partrans=vari2[1:ncont]|(vari2[ncont+1:ncont+n]^2)|zp|zq;  
+  retp(partrans);
+endp;
+
+/*-----------------------------------------------------------------
+          Procedure to obtain Kalman matrices
+-------------------------------------------------------------------*/
+proc(4)=matrices(z);
+   local Rs,Qs,F1,F2,F3,F4,Fs,cy2,cy3,i,j,nece;
+   Rs=va*ones(n,1);
+   Qs=diagrv(eye(pnk),(z[nth-6]|zeros(4,1)|(z[nth-5:nth-2])));
+     cy2=2*n+n^2+1;
+     j=6;
+     do while j<=pnk;
+        Qs[1,j]=z[cy2];
+        Qs[j,1]=z[cy2];
+        cy2=cy2+1;
+        j=j+1;
+     endo;
+     cy3=cy2;
+     j=6;
+     do while j<=pnk;
+        i=j+1;
+        do while i<=pnk;
+           Qs[j,i]=z[cy2];
+           cy2=cy2+1;
+           i=i+1;
+        endo;
+        j=j+q1;
+     endo;
+     i=6;
+     do while i<=pnk;
+        j=i+1;
+        do while j<=pnk;
+           Qs[j,i]=z[cy3];
+           cy3=cy3+1;
+           j=j+1;
+        endo;
+        i=i+q1;
+     endo;
+        
+   Hs=(vector'|zeros(nm,p))~(zeros(1,nm*q1)|(eye(nm)));
+  
+   cy2=2*n;
+   F1=z[cy2+1:cy2+1]'~zeros(1,4)~z[cy2+2:cy2+1+nm]';   
+   F2=eye(4)~zeros(4,5);
+   cy2=cy2+1+nm; 
+   F3=z[cy2+1:cy2+nm]~zeros(4,4)~reshape(z[cy2+nm+1:cy2+nm+nm^2],nm,nm);
+   Fs=F1|F2|F3;
+
+   retp(Rs,Qs,Hs,Fs);
+endp;
+proc fsmooth(skifn,pmn);
+   local skisn,it,ihk,hk;
+   skisn=zeros(captst,2);
+   skisn[captst,.]=skifn[captst,.];
+   it=1;
+   do until it==captst;
+      if minc(skif[captst-it,.]') > 1.e-150;
+         skisn[captst-it,.]=skifn[captst-it,.].*
+               ((skisn[captst-it+1,.]./(skifn[captst-it,.]*pmn'))*pmn);
+      else;   @ adjust code so as not to divide by zero @
+          hk=skifn[captst-it,.]*pmn';
+          ihk=1;
+          do until ihk > n;
+              if hk[1,ihk] > 1.e-150;
+                 hk[1,ihk] = skisn[captst-it+1,ihk]/hk[1,ihk];
+              else;
+                 hk[1,ihk] = 0;
+              endif;
+          ihk = ihk + 1;
+          endo;
+          skisn[captst-it,.] = skifn[captst-it,.].*(hk*pmn);
+      endif;
+   it = it+1;
+   endo;
+
+   retp(skisn);
+endp;
+end;

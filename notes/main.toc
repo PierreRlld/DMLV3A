@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Summary of the paper}{1}{section.1}%
+\contentsline {section}{\numberline {2}Literature review}{4}{section.2}%
+\contentsline {section}{\numberline {3}Other comments}{6}{section.3}%
+\contentsline {section}{\numberline {4}Notes}{8}{section.4}%
+\contentsline {section}{References}{9}{AMS.8}%

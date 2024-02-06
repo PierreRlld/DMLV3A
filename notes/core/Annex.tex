@@ -1,0 +1,29 @@
+% ============================================
+\quad I use usual notations and equations of standard Structural VAR, mainly derived from the 2023/24 ENSAE course '\textit{Advanced Time-Series Analysis}' of Ricco Giovanni :
+\vspace{-.4cm}
+\begin{align}
+    \textrm{SVMA($\infty$) :} \quad Y_t &= \mu + F_0 u_t + F_1 u_{t-1} + F_2 u_{t-2} + (\dots) \quad u_t \thicksim WN(0,I_n)\footnotemark \nonumber \\
+    \textrm{SVAR($\infty$)\footnotemark :} \quad B_0 Y_t &= K + B_1 Y_{t-1} + B_2 Y_{t-2} + (\dots) + u_t \nonumber \\
+    \textrm{SVAR(p) :} \quad B_0 Y_t &= K + B_1 Y_{t-1} + B_2 Y_{t-2} + (\dots) + B_p Y_{t-p} + u_t \quad u_t \thicksim WN(0,I_n) \nonumber \\
+    \textrm{Estimated VAR(p) :} \quad Y_t &= C + A_1 Y_{t-1} + A_2 Y_{t-2} + (\dots) + A_p Y_{t-p} + e_t \quad e_t \thicksim WN(0,\Sigma) \nonumber \\
+    \Rightarrow u_t & = B_0.e_t \tag{R1}\label{res_B}
+\end{align} 
+\quad The last equation highlights the need to identify $B_0$ ($n^2$ elements matrix) to get the structual shocks $u_t$ from the reduced-form (estimated) residuals $e_t$ in the usual framework. 
+As $\Sigma = B_0^{-1}.(B_0^{-1})^{T}$ and $\Sigma$ is symmetric, this yields $\frac{n(n+1)}{2}$ moments. 
+We then need $n^2 - \frac{n(n+1)}{2} = \frac{n(n-1)}{2}$ other restrictions if we want to fully identify $B_0$ in the standard SVAR framework.
+\footnotetext{\textit{'WN'} white noise}
+\footnotetext{Obtained by inverting the infinite moving average form SVMA($\infty$)}
+
+\bigbreak
+
+Usual Impulse Response Function for Structural VARs are obtained through the approximation of the Wold decomposition by inverting the estimated finite-order VAR(p) and with $\{C_j\}_j$ the coefficients of the Wold representation we have : 
+\begin{align*}
+    Y_t &= \mu + C_0 u_t + C_1.B_0^{-1} u_{t-1} + C_1.B_0^{-1} u_{t-2} + (\dots) \\
+    \Rightarrow \textrm{IRF}_{t+j} &= \frac{\partial Y_{t+j}}{\partial u_t} = C_j.B_0^{-1} \tag{R2}\label{res_irf}
+\end{align*}
+\quad In case the coefficient matrices from the estimated VAR are not regime-dependent the $\{C_j\}_j$ from the Wold decomposition won't be either. [\ref{res_irf}] also shows that different estimations of $B_0$ will be reflected in different IRFs, and thus different reponse profiles of the system following shocks.
+
+\bigbreak
+
+\label{simult_M}[\ref{simult_M}] \textit{Simultaneous diagolanization of a positive semi definite matrix and symmetric matrices} for $M>2$ regimes:
+$\Sigma_1 = B.B^T$ and $\Sigma_i = B.\Gamma_i.B^T$ with $B$ positive definite and $\Gamma_i$ a diagonal matrix.

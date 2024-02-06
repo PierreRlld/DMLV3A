@@ -1,0 +1,40 @@
+\quad Herwartz et Lütkepohl (2014) \cite{HL} directly build on the work of Lanne et al. to address the issue of how standard identifying assumption can complete statistical information.
+Indeed, shocks identified purely through the prism of statistical properties (as it is done with MS-SVAR) may not end up deing economically relevant. 
+In such case we effectively extract more information from the data but we cannot economically interpret the results.
+These issues are discussed through a quarterly model for the US for oil prices, output, price level and short-term interest rate. 
+They provide more detailed statistical guidelines regarding model selection and interpretation compared to Lanne et al. 
+Information criterion are used to compare different unrestricted models to the restricted and their interpretation provide support from the data for the final choice.
+Regarding the labeling of shocks it is mainly done through volatility analysis in the different regimes: state probabilities are interpreted in light of historical economic knowledge.
+Thus, shocks are identified by regime-specific volatilities in light of economic events/periods. 
+Noteworthy additions of Herwartz et Lütkepohl are also on issues with standard residual based bootstrap methods for the optimization of the log-likelihood and especially a thorough description of the adapted EM algorithm when covariance matrices are parametrized by a Markov switching process (which was not present in Lanne et al.).
+\bigbreak
+On the IRF litterature in the context of MS-VAR models, earlier work focused on computing IRFs for specific simple specifications (i.e with only the intercept being regime-dependent). 
+In 2003 Ehrmann et al. \cite{Ehrmann} proposed a procedure to compute a \textit{regime-dependent impulse response function} in the general framework of MS-VAR i.e with regime-dependent coefficients and covariance matrices.
+Parameters of the model and the markov chain are estimated by standard EM algorithm procedure. With estimated parameters, the identification problem needs to be dealt with and they use restrictions assumptions from the standard SVAR literature.
+However, the derived IRFs are only modelisation of the system response \textit{conditional} on the regime state at which the disturbance occurs. The modeled reaction thus corresponds to the \textit{within-regime} system response (assumes the system stays indefinitely in this regime), but not the unconditional (general) reponse.
+To that end Karamé (2010) \cite{Krame} makes a step further and proposes more general IRFs corresponding to the system general reaction following a shock, encompassing the unconditional response.
+Cavicchioli (2023) \cite{Maddalena} proposes a continuation of such work by unifying results under a matrix representation framework. A complete breakdown of assumptions and theorems underlying the IRFs derived from general MS-VAR model, extending initial results from standard VAR of Hamilton, is also provided.
+\bigbreak
+Empirical applications on financial and commodity market topics dwell further by using general MS-VAR models.
+For instance, Sharestani et Rafei (2020) \cite{Iran} focus on the case of oil price shocks on the Iranian stock exchange. 
+The (broader) MS-SVAR framework, is mainly considered to assess varying persistence effect of oil price shocks on Iranian financial markets between 2 regimes.
+The number of states choice was adressed through information criteria.
+Hou et Nguyen (2018) \cite{Hou} attempt to provide more insights regarding the structure of the US natural gas market using the MS-VAR framework. 
+Specifically, the markov chain structure allows for regime recurrence which could be more attractive to study commodity markets and understand links between the different type of shocks compared to standard structural break models.
+Note that they use the general MS-VAR with state-specific coefficients and covariance matrices but compute the IRFs \textit{within} a regime.
+Infering results from such IRFs would assume the system indeed stays for a long time in each regime, and their results show is it most likely the case as almost all regimes span a considerable length of time.
+\bigbreak
+The MS-VAR framework has been extended to account for mixed-frequency data, a topic generally discussed in the context of Dynamic Factor Models (see Stock \& Watson 2002).
+One extension of the standard VAR framework to mixed frequency data (MF-VAR) was proposed by Mariano et Murasawa (2010) \cite{MM}. 
+The main idea is to use a latent monthly (unobserved) underlying variable for the the quarterly series (usually a geometric mean of the latent variable). 
+Assuming a standard VAR model on the vector composed of the latent variable and the other observed monthly series, and using it to define a state vector\footnotemark \, a state-space representation of the VAR can be derived. 
+The original vector, in the measurement equation, composed of quarterly and monthly data is still only observed every third period.
+After subtule transformations (namely handling missing values as random draws whose realisations were all zeros) and variable definitions, the measurement equation can be rewritten and a monthly time-varying space state model \textit{without} missing values obtained.
+It is estimated using the EM algorithm and the Kalman smoother is then used with the filtered value considered as a new coincident index (with appropriate transformation) to be compared with the Stock-Watson Experimental Coincident Index and the NBER recession dates.
+\footnotetext{The exact definition depends on the VAR order}
+Camacho (2013) \cite{Camacho} builds on this work and considers the extension where the assumed VAR process for the state vector is now a Markov-Switching VAR. 
+The computed monthly estimates of GDP growth for the US by Mariano et Murasawa is then augmented by the Markov-Switching version.
+Foroni et al. (2015) \cite{Foroni} also consider the Markov-Switching extension of Mariano et Murasawa (2010) but, amongst other things, compare it with the regime switching version of the Mixed-Frequency VAR of Ghysels (2012) \cite{Ghysels}.
+The latter differs from the work of Mariano et Murasawa as it does not hinge on latent variables, rather it leverages a specific representation of the data: a \textit{Mixed and Periodic Stacked VAR} representation. 
+The main takeaway from this representation is that the model can be estimated using regular tools, namely with a maximum likelihood estimation which is much less computational intensive than Kalman filtering.
+
