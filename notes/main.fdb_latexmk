@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1707076320 "main.aux" "main.bbl" "main" 1707076322 0
+["bibtex main"] 1707076320 "main.aux" "main.bbl" "main" 1708105420 0
   "./biblio.bib" 1706958097 3712 a31283d68501303ae629ac67a04b4724 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1707076321 2000 db7e9cb9e82432fe28a0e7ac93f2e8e3 "pdflatex"
+  "main.aux" 1708105420 2000 db7e9cb9e82432fe28a0e7ac93f2e8e3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1707076320 "/Users/prld/git/DMLV3A/notes/main.tex" "main.pdf" "main" 1707076322 0
-  "/Users/prld/git/DMLV3A/notes/main.tex" 1707076318 1002 1caab4f107c4e1d163af014e880ccde8 ""
+["pdflatex"] 1708105419 "/Users/prld/git/DMLV3A/notes/main.tex" "main.pdf" "main" 1708105420 0
+  "/Users/prld/git/DMLV3A/notes/main.tex" 1708105419 1001 fac38f192356efd72e021a033af4ca30 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc" 1536266730 2996 4eac4f75d003875749efc5dde4ee7502 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_rlbtkr.enc" 1536266730 3000 f0dccc28f6206cbcdd759dc87a28d5a3 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -318,14 +318,14 @@
   "core/2. Litreview.tex" 1707076068 6581 a3e9d3be7115d18de35d7ae653abf26b ""
   "core/3. Analysis.tex" 1707075278 3133 605c46590657f0f4f765e16ec211d874 ""
   "core/Annex.tex" 1707041800 2519 4f272e8ccc95357aa088339bf57183f0 ""
-  "main.aux" 1707076321 2000 db7e9cb9e82432fe28a0e7ac93f2e8e3 "pdflatex"
+  "main.aux" 1708105420 2000 db7e9cb9e82432fe28a0e7ac93f2e8e3 "pdflatex"
   "main.bbl" 1707076320 2387 5ba8bbd372fc8032ec17454b19324ecb "bibtex main"
-  "main.out" 1707076321 556 41ff123c806a6938485344867144414c "pdflatex"
-  "main.tex" 1707076318 1002 1caab4f107c4e1d163af014e880ccde8 ""
-  "main.toc" 1707076321 327 1c80192a67786dcced11b0e27100fdbc "pdflatex"
+  "main.out" 1708105420 556 41ff123c806a6938485344867144414c "pdflatex"
+  "main.tex" 1708105419 1001 fac38f192356efd72e021a033af4ca30 ""
+  "main.toc" 1708105420 327 1c80192a67786dcced11b0e27100fdbc "pdflatex"
   "math.sty" 1702547977 5373 b1761e90995704a89ca6da691c35eec9 ""
   "notes.sty" 1702545759 652 c7af60f8ea3cf432b29809ed1cd4b66c ""
-  "paper.sty" 1706791402 5583 79deb02e5dfe55a3f4f5412835b047c6 ""
+  "paper.sty" 1708105417 5582 d27397d6cfb7039df9039137e024f588 ""
   (generated)
   "main.aux"
   "main.log"

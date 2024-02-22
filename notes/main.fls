@@ -1470,20 +1470,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSe
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/eulervm/zeurm7.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
 OUTPUT main.toc
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-BoldIt-lf-t1.vf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-BoldIt-lf-t1--base.tfm
-INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1.vf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1--base.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_rlbtkr.enc
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1.vf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1--base.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Bold-lf-t1.tfm
-INPUT ./core/1. Summary.tex
-INPUT core/1. Summary.tex
-INPUT ./core/1. Summary.tex
-INPUT core/1. Summary.tex
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
@@ -1497,6 +1483,22 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSe
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-It-lf-t1.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/eulervm/zeurm7.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-BoldIt-lf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-BoldIt-lf-t1--base.tfm
+INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1--base.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_rlbtkr.enc
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1--base.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1.vf
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1--base.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Bold-lf-t1.tfm
+INPUT ./core/1. Summary.tex
+INPUT core/1. Summary.tex
+INPUT ./core/1. Summary.tex
+INPUT core/1. Summary.tex
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueus.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueus.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueus.fd
@@ -1513,8 +1515,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSer
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Bold-lf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-It-lf-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-It-lf-t1--base.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1.vf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-Regular-lf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/sourceserifpro/SourceSerifPro-It-lf-t1.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/sourceserifpro/SourceSerifPro-It-lf-t1--base.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/public/eulervm/zeurm10.vf

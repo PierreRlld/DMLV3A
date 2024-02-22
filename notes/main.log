@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.23)  4 FEB 2024 20:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.23)  16 FEB 2024 18:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1241,18 +1241,18 @@ LaTeX Font Info:    Font shape `U/psy/m/n' will be
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
+LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 22.
+LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
+(Font)              scaled to size 6.0pt on input line 22.
+LaTeX Font Info:    Font shape `U/psy/m/n' will be
+(Font)              scaled to size 6.0pt on input line 22.
  [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/sourceserifpro/a_rlbtkr.enc}]
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 24.
  (./core/1. Summary.tex
-LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 14.
-LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 6.0pt on input line 14.
-LaTeX Font Info:    Font shape `U/psy/m/n' will be
-(Font)              scaled to size 6.0pt on input line 14.
 LaTeX Font Info:    Trying to load font information for U+eus on input line 21.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
@@ -1271,10 +1271,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  116i,15n,131p,1030b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-Bold.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-BoldIt.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-It.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-Regular.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb>
-Output written on main.pdf (10 pages, 241790 bytes).
+Output written on main.pdf (10 pages, 241972 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
+ 175 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
  29 named destinations out of 1000 (max. 500000)
  61493 words of extra memory for PDF output out of 61914 (max. 10000000)
 
